@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-  background(200);
+  background(50);
   game.update();
   game.draw();
 }

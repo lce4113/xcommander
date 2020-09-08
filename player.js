@@ -1,19 +1,32 @@
 class Player {
 
-  constructor(x, y, dir) {
+  constructor(x, y, size, dir, color1, color2, arr) {
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
-    this.size = createVector(25, 25);
+    this.size = createVector(size, size);
     this.dir = -dir;
+    this.color1 = color1;
+    this.color2 = color2;
+    this.arr = arr;
   }
 
   draw() {
-    // push();
-    rectMode(CENTER);
     translate(this.pos.x, this.pos.y);
     rotate(this.dir);
-    rect(0, 0, this.size.x, this.size.y);
-    // pop();
+    noStroke();
+    for (let i = 0; i < this.arr.length; i++) {
+      for (let j = 0; j < this.arr[i].length; j++) {
+        if (this.arr[i][j]) {
+          fill(this.arr[i][j] == 1 ? this.color1 : this.color2);
+          rect(
+            (this.arr.length / 2 - i - 1) * this.size.x / 5,
+            (this.arr[i].length / 2 - j - 1) * this.size.y / 5,
+            this.size.x / 5,
+            this.size.y / 5
+          );
+        }
+      }
+    }
   }
 
   update() {
