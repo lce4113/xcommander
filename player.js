@@ -1,59 +1,114 @@
 class Player {
 
-  constructor(x, y, size, dir, color1, color2, arr) {
+  constructor(x, y, radius, dir, color1, color2, arr, keys, element) {
+    // Parameters
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
-    this.size = createVector(size, size);
-    this.dir = -dir;
+    this.radius = radius;
+    this.dir = dir;
     this.color1 = color1;
     this.color2 = color2;
     this.arr = arr;
+    this.keys = keys;
+    this.element = element;
+
+    // Projectiles
+    this.projectiles = [];
+
+    // Stats
+    this.health = 60;
   }
 
   draw() {
+    // Transformation
+    push();
     translate(this.pos.x, this.pos.y);
     rotate(this.dir);
     noStroke();
-    for (let i = 0; i < this.arr.length; i++) {
-      for (let j = 0; j < this.arr[i].length; j++) {
-        if (this.arr[i][j]) {
-          fill(this.arr[i][j] == 1 ? this.color1 : this.color2);
+
+    // Draw ship from display array
+    for (let j = 0; j < this.arr.length; j++) {
+      for (let i = 0; i < this.arr[j].length; i++) {
+        if (this.arr[j][i]) {
+          fill(this.arr[j][i] == 1 ? this.color1 : this.color2);
           rect(
-            (this.arr.length / 2 - i - 1) * this.size.x / 5,
-            (this.arr[i].length / 2 - j - 1) * this.size.y / 5,
-            this.size.x / 5,
-            this.size.y / 5
+            (-this.arr.length / 2 + i) * this.radius / 1.15 * 2 / this.arr.length,
+            (-this.arr[j].length / 2 + j) * this.radius / 1.15 * 2 / this.arr[j].length,
+            this.radius / 1.15 * 2 / this.arr.length,
+            this.radius / 1.15 * 2 / this.arr[j].length
           );
         }
       }
+    }
+
+    // Red thing in the back
+    if (keyIsDown(this.keys[2])) {
+      fill(255, 0, 0);
+      rect(
+        -this.radius / 2,
+        this.radius,
+        this.radius,
+        this.radius / 5
+      );
+    }
+
+    pop();
+
+    // Projectiles
+    for (let projectile of this.projectiles) {
+      projectile.draw();
     }
   }
 
   update() {
     // Keys
-    if (keyIsDown(LEFT_ARROW)) {
+    if (keyIsDown(this.keys[0])) {
       this.dir -= PI / 30;
     }
-    if (keyIsDown(RIGHT_ARROW)) {
+    if (keyIsDown(this.keys[1])) {
       this.dir += PI / 30;
     }
-    if (keyIsDown(UP_ARROW)) {
-      this.vel.add(0.3 * cos(this.dir), 0.3 * sin(this.dir));
+    if (keyIsDown(this.keys[2])) {
+      this.vel.add(0.3 * -cos(this.dir + PI / 2), 0.3 * -sin(this.dir + PI / 2));
     }
 
     // Physics
-    this.vel.mult(0.97);
+    this.vel.mult(0.985);
     this.pos.add(this.vel);
 
     // Boundaries
-    if (this.size.x / 2 > this.pos.x || this.pos.x > 500 - this.size.x / 2) {
-      this.pos.x = constrain(this.pos.x, this.size.x / 2, 500 - this.size.x / 2);
-      this.vel.x *= -1;
+    if (this.radius > this.pos.x || this.pos.x > 500 - this.radius) {
+      this.pos.x = constrain(this.pos.x, this.radius, 500 - this.radius);
+      this.vel.x *= -0.5;
     }
-    if (this.size.y / 2 > this.pos.y || this.pos.y > 500 - this.size.y / 2) {
-      this.pos.y = constrain(this.pos.y, this.size.y / 2, 500 - this.size.y / 2);
-      this.vel.y *= -1;
+    if (this.radius > this.pos.y || this.pos.y > 500 - this.radius) {
+      this.pos.y = constrain(this.pos.y, this.radius, 500 - this.radius);
+      this.vel.y *= -0.5;
     }
+
+    // Projectiles
+    if (frameCount % 50 == 0) {
+      this.projectiles.push(new Projectile(
+        this.pos.x + this.radius * -cos(this.dir + PI / 2), // x pos
+        this.pos.y + this.radius * -sin(this.dir + PI / 2), // y pos
+        3, this.dir + PI / 2, 3, color(200) // radius, dir, speed, color
+      ));
+    }
+    for (let i = 0; i < this.projectiles.length; i++) {
+      var p = this.projectiles[i];
+      if (
+        0 > p.pos.x || p.pos.x > 500 ||
+        0 > p.pos.y || p.pos.y > 500
+      ) {
+        this.projectiles.splice(i, 1);
+      }
+      p.update();
+    }
+  }
+
+  takeHealth(n = 1) {
+    this.health -= n;
+    this.element.text(this.health);
   }
 
 }
