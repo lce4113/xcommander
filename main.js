@@ -1,8 +1,9 @@
-var prints = 0;
 var game;
+var damageSound = new Audio("./Media/damage.mp3");
+damageSound.volume = 0.5;
 
 function setup() {
-  game = new Game();
+  game = new Game(2);
   canvas = createCanvas(500, 500);
   canvas.elt.style = `
     width: 100vh;

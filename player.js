@@ -12,8 +12,9 @@ class Player {
     this.keys = keys;
     this.element = element;
 
-    // Projectiles
+    // Other
     this.projectiles = [];
+    this.damage = 0;
 
     // Stats
     this.health = 60;
@@ -37,6 +38,18 @@ class Player {
             this.radius / 1.15 * 2 / this.arr.length,
             this.radius / 1.15 * 2 / this.arr[j].length
           );
+          // Red tint for damage
+          if (this.damage > 0) {
+            this.damage -= 1 / this.arr.length / this.arr[j].length / 60 * 100;
+            fill(255, 0, 0, 150);
+
+            rect(
+              (-this.arr.length / 2 + i) * this.radius / 1.15 * 2 / this.arr.length,
+              (-this.arr[j].length / 2 + j) * this.radius / 1.15 * 2 / this.arr[j].length,
+              this.radius / 1.15 * 2 / this.arr.length,
+              this.radius / 1.15 * 2 / this.arr[j].length
+            );
+          }
         }
       }
     }
@@ -45,10 +58,10 @@ class Player {
     if (keyIsDown(this.keys[2])) {
       fill(255, 0, 0);
       rect(
-        -this.radius / 2,
-        this.radius,
-        this.radius,
-        this.radius / 5
+        -this.radius / 1.15 / 2,
+        this.radius / 1.15,
+        this.radius / 1.15,
+        this.radius / 1.15 / 5
       );
     }
 
@@ -96,19 +109,26 @@ class Player {
     }
     for (let i = 0; i < this.projectiles.length; i++) {
       var p = this.projectiles[i];
+      p.update();
       if (
         0 > p.pos.x || p.pos.x > 500 ||
         0 > p.pos.y || p.pos.y > 500
       ) {
         this.projectiles.splice(i, 1);
       }
-      p.update();
     }
   }
 
-  takeHealth(n = 1) {
+  takeDamage(n = 1) {
     this.health -= n;
     this.element.text(this.health);
+    this.damage = 10;
+    damageSound.play();
+  }
+
+  removeProj(proj) {
+    var projectile = this.projectiles.find(p => _.isEqual(p, proj));
+    this.projectiles = this.projectiles.filter(p => !_.isEqual(p, proj));
   }
 
 }

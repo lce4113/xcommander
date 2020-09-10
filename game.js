@@ -1,6 +1,6 @@
 class Game {
 
-  constructor() {
+  constructor(num) {
     // Players
     this.players = [
       new Player(
@@ -15,7 +15,7 @@ class Game {
         [1, 1, 1, 2, 2, 1, 1, 1],
         [1, 1, 1, 2, 2, 1, 1, 1]],
         [49 /* 1 */, 50 /* 2 */, 81 /* q */], // keys
-        $("#one>.num")
+        $("#three>.num")
       ),
       new Player(
         150, 150, 12, 0, // x, y, radius, direction
@@ -43,14 +43,13 @@ class Game {
         [1, 1, 1, 2, 2, 1, 1, 1],
         [1, 1, 1, 2, 2, 1, 1, 1]],
         [LEFT_ARROW, RIGHT_ARROW, UP_ARROW], // keys
-        $("#three>.num")
+        $("#one>.num")
       )
     ];
 
-    this.num = 2;
-    this.players = this.players.slice(3 - this.num);
+    this.players = this.players.slice(3 - num);
     $(".health").show();
-    $(".health").slice(this.num).hide();
+    $(".health").slice(num).hide();
   }
 
   draw() {
@@ -62,26 +61,21 @@ class Game {
 
   update() {
     // Players
-    for (let player of this.players) {
-      player.update();
+    for (let player1 of this.players) {
+      player1.update();
 
       // Player - Projectile Collision
-      var allProjectiles = this.players.filter(p => p.arr != player.arr);
-      allProjectiles = allProjectiles.map(p => p.projectiles);
+      var players = this.players.filter(p => !_.isEqual(p, player1));
 
-      if (110 > prints && prints > 100) console.log(allProjectiles);
-      prints++;
-
-      for (let projectiles of allProjectiles) {
-        for (let proj of projectiles) {
+      for (let player2 of players) {
+        for (let proj of player2.projectiles) {
           if (
-            (proj.pos.x - player.pos.x) ** 2 +
-            (proj.pos.y - player.pos.y) ** 2 <=
-            (proj.radius + player.radius) ** 2
+            (proj.pos.x - player1.pos.x) ** 2 +
+            (proj.pos.y - player1.pos.y) ** 2 <=
+            (proj.radius + player1.radius) ** 2
           ) {
-            console.log(projectiles, proj);
-            projectiles.filter(p => !(p.pos.x == proj.pos.x && p.pos.y == proj.pos.y));
-            player.takeHealth();
+            player2.removeProj(proj);
+            player1.takeDamage();
           }
         }
       }
