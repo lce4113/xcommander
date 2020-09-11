@@ -1,6 +1,6 @@
 class Game {
 
-  constructor(num) {
+  constructor(num = 3) {
     // Players
     this.players = [
       new Player(
@@ -48,11 +48,13 @@ class Game {
     ];
 
     this.players = this.players.slice(3 - num);
-    $(".health").show();
-    $(".health").slice(num).hide();
+    $(".health").slice(0, num).show();
+    this.damageSound = new Audio("./Media/damage.mp3");
+    this.damageSound.volume = 0.5;
   }
 
   draw() {
+    background(50);
     // Players
     for (let player of this.players) {
       player.draw();
@@ -76,6 +78,7 @@ class Game {
           ) {
             player2.removeProj(proj);
             player1.takeDamage();
+            this.damageSound.play();
           }
         }
       }

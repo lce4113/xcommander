@@ -1,0 +1,83 @@
+<svg width="3900" height="300" viewBox="0 0 3900 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" fill="white"/>
+  <rect x="100" y="100" width="100" height="100" fill="white"/>
+  <rect x="400" width="100" height="100" fill="white"/>
+  <rect x="600" y="200" width="100" height="100" fill="white"/>
+  <rect x="600" width="100" height="100" fill="white"/>
+  <rect x="500" width="100" height="100" fill="white"/>
+  <rect x="500" y="200" width="100" height="100" fill="white"/>
+  <rect x="400" y="200" width="100" height="100" fill="white"/>
+  <rect x="400" y="100" width="100" height="100" fill="white"/>
+  <rect x="1400" width="100" height="100" fill="white"/>
+  <rect x="1500" width="100" height="100" fill="white"/>
+  <rect x="1500" y="200" width="100" height="100" fill="white"/>
+  <rect x="1500" y="100" width="100" height="100" fill="white"/>
+  <rect x="1100" width="100" height="100" fill="white"/>
+  <rect x="1300" y="100" width="100" height="100" fill="white"/>
+  <rect x="1300" y="200" width="100" height="100" fill="white"/>
+  <rect x="1300" width="100" height="100" fill="white"/>
+  <rect x="1200" width="100" height="100" fill="white"/>
+  <rect x="1100" y="200" width="100" height="100" fill="white"/>
+  <rect x="1100" y="100" width="100" height="100" fill="white"/>
+  <rect x="1950" width="100" height="100" fill="white"/>
+  <rect x="2050" width="100" height="100" fill="white"/>
+  <rect x="2050" y="200" width="100" height="100" fill="white"/>
+  <rect x="2050" y="100" width="100" height="100" fill="white"/>
+  <rect x="1650" width="100" height="100" fill="white"/>
+  <rect x="1850" y="100" width="100" height="100" fill="white"/>
+  <rect x="1850" y="200" width="100" height="100" fill="white"/>
+  <rect x="1850" width="100" height="100" fill="white"/>
+  <rect x="2650" width="100" height="100" fill="white"/>
+  <rect x="2750" width="100" height="100" fill="white"/>
+  <rect x="2750" y="200" width="100" height="100" fill="white"/>
+  <rect x="2750" y="100" width="100" height="100" fill="white"/>
+  <rect x="2550" y="100" width="100" height="100" fill="white"/>
+  <rect x="2550" y="200" width="100" height="100" fill="white"/>
+  <rect x="2550" width="100" height="100" fill="white"/>
+  <rect x="2300" width="100" height="100" fill="white"/>
+  <rect x="2400" width="100" height="100" fill="white"/>
+  <rect x="2400" y="200" width="100" height="100" fill="white"/>
+  <rect x="2400" y="100" width="100" height="100" fill="white"/>
+  <rect x="2200" y="100" width="100" height="100" fill="white"/>
+  <rect x="2200" y="200" width="100" height="100" fill="white"/>
+  <rect x="2300" y="150" width="100" height="50" fill="white"/>
+  <rect x="2200" width="100" height="100" fill="white"/>
+  <rect x="3000" width="100" height="100" fill="white"/>
+  <rect x="3100" width="100" height="100" fill="white"/>
+  <rect x="3100" y="200" width="100" height="100" fill="white"/>
+  <rect x="3000" y="200" width="100" height="100" fill="white"/>
+  <rect x="3100" y="100" width="100" height="100" fill="white"/>
+  <rect x="2900" y="100" width="100" height="100" fill="white"/>
+  <rect x="2900" y="200" width="100" height="100" fill="white"/>
+  <rect x="2900" width="100" height="100" fill="white"/>
+  <rect x="3700" width="100" height="100" fill="white"/>
+  <rect x="3800" width="100" height="100" fill="white"/>
+  <rect x="3700" y="150" width="100" height="50" fill="white"/>
+  <rect x="3800" y="100" width="100" height="100" fill="white"/>
+  <rect x="3600" y="100" width="100" height="100" fill="white"/>
+  <rect x="3600" y="200" width="100" height="100" fill="white"/>
+  <rect x="3600" width="100" height="100" fill="white"/>
+  <rect x="3350" width="100" height="100" fill="white"/>
+  <rect x="3450" width="100" height="100" fill="white"/>
+  <rect x="3450" y="200" width="100" height="100" fill="white"/>
+  <rect x="3350" y="200" width="100" height="100" fill="white"/>
+  <rect x="3350" y="125" width="100" height="50" fill="white"/>
+  <rect x="3250" y="100" width="100" height="100" fill="white"/>
+  <rect x="3250" y="200" width="100" height="100" fill="white"/>
+  <rect x="3250" width="100" height="100" fill="white"/>
+  <rect x="1750" width="100" height="100" fill="white"/>
+  <rect x="1650" y="200" width="100" height="100" fill="white"/>
+  <rect x="1650" y="100" width="100" height="100" fill="white"/>
+  <rect x="750" width="100" height="100" fill="white"/>
+  <rect x="950" y="200" width="100" height="100" fill="white"/>
+  <rect x="950" width="100" height="100" fill="white"/>
+  <rect x="950" y="100" width="100" height="100" fill="white"/>
+  <rect x="850" width="100" height="100" fill="white"/>
+  <rect x="850" y="200" width="100" height="100" fill="white"/>
+  <rect x="750" y="200" width="100" height="100" fill="white"/>
+  <rect x="750" y="100" width="100" height="100" fill="white"/>
+  <rect x="200" y="200" width="100" height="100" fill="white"/>
+  <rect y="200" width="100" height="100" fill="white"/>
+  <rect x="200" width="100" height="100" fill="white"/>
+  <path d="M3800 200L3900 300H3800L3700 200H3800Z" fill="white"/>
+</svg>

@@ -2,9 +2,10 @@
 <html lang="en">
 
   <head>
-    <!-- Meta -->
+    <!-- Meta Data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Media/favicon.svg" type="image/x-icon">
     <title>XCommander</title>
 
     <!-- p5.js -->
@@ -34,19 +35,24 @@
   </head>
 
   <body>
-    <div class="health" id="one">
+    <div id="menu">
+      <img id="title" src="./Media/title.svg" alt="Title">
+      <button id="play">Play</button>
+      <button id="instructions">Instructions</button>
+    </div>
+    <div class="health" id="one" style="display: none;">
       <div class="player">Player 1</div>
       <div class="num">60</div>
     </div>
-    <div class="health" id="two">
+    <div class="health" id="two" style="display: none;">
       <div class="player">Player 2</div>
       <div class="num">60</div>
     </div>
-    <div class="health" id="three">
+    <div class="health" id="three" style="display: none;">
       <div class="player">Player 3</div>
       <div class="num">60</div>
     </div>
-    <div class="health" id="four">
+    <div class="health" id="four" style="display: none;">
       <div class="player">Player 4</div>
       <div class="num">60</div>
     </div>

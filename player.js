@@ -104,7 +104,7 @@ class Player {
       this.projectiles.push(new Projectile(
         this.pos.x + this.radius * -cos(this.dir + PI / 2), // x pos
         this.pos.y + this.radius * -sin(this.dir + PI / 2), // y pos
-        3, this.dir + PI / 2, 3, color(200) // radius, dir, speed, color
+        3, this.dir + PI / 2, 3, this.color2 // radius, dir, speed, color
       ));
     }
     for (let i = 0; i < this.projectiles.length; i++) {
@@ -123,7 +123,6 @@ class Player {
     this.health -= n;
     this.element.text(this.health);
     this.damage = 10;
-    damageSound.play();
   }
 
   removeProj(proj) {
