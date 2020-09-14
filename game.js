@@ -79,6 +79,15 @@ class Game {
             player2.removeProj(proj);
             player1.takeDamage();
             this.damageSound.play();
+            if (player1.health == 0) {
+              player1.die();
+              this.players = this.players.filter(p => !_.isEqual(p, player1));
+              if (this.players.length <= 1) {
+                this.players[0].die(true);
+                game = false;
+                $("#buttons").fadeIn(1000);
+              }
+            }
           }
         }
       }

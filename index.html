@@ -36,25 +36,74 @@
 
   <body>
     <div id="menu">
-      <img id="title" src="./Media/title.svg" alt="Title">
-      <button id="play">Play</button>
-      <button id="instructions">Instructions</button>
+      <div id="buttons">
+        <img id="title" src="./Media/title.svg" alt="Title">
+        <button id="play">Play</button>
+        <button id="how-to-play-button">How To Play</button>
+        <button id="settings-button">Settings</button>
+      </div>
+      <div id="play-settings">
+        <div>
+          <p class="yellow">Player 1:</p>
+          <p>Use the <span class="yellow">left</span> and <span class="yellow">right</span> arrow keys to turn.</p>
+          <p>Use the <span class="yellow">up</span> arrow key to accelerate.</p>
+          <p class="green">Player 2:</p>
+          <p>Use the <span class="green">c</span> and <span class="green">v</span> keys to turn.</p>
+          <p>Use the <span class="green">f</span> key to accelerate.</p>
+          <p class="pink">Player 3:</p>
+          <p>Use the <span class="pink">1</span> and <span class="pink">q</span> keys to turn.</p>
+          <p>Use the <span class="pink">2</span> key to accelerate.</p>
+          <div id="back-play-game">
+            <button class="back">back</button><button id="play-game">start</button>
+          </div>
+        </div>
+      </div>
+      <div id="settings" style="display: none;">
+        <div class="heading">Settings</div>
+        <div>
+          <p class="yellow">Player 1:</p>
+          <p>Use the <span class="yellow">left</span> and <span class="yellow">right</span> arrow keys to turn.</p>
+          <p>Use the <span class="yellow">up</span> arrow key to accelerate.</p>
+          <p class="green">Player 2:</p>
+          <p>Use the <span class="green">c</span> and <span class="green">v</span> keys to turn.</p>
+          <p>Use the <span class="green">f</span> key to accelerate.</p>
+          <p class="pink">Player 3:</p>
+          <p>Use the <span class="pink">1</span> and <span class="pink">q</span> keys to turn.</p>
+          <p>Use the <span class="pink">2</span> key to accelerate.</p>
+          <button class="back">back</button>
+        </div>
+      </div>
+      <div id="how-to-play" style="display: none;">
+        <div class="heading">How To Play</div>
+        <div>
+          <p class="yellow">Player 1:</p>
+          <p>Use the <span class="yellow">left</span> and <span class="yellow">right</span> arrow keys to turn.</p>
+          <p>Use the <span class="yellow">up</span> arrow key to accelerate.</p>
+          <p class="green">Player 2:</p>
+          <p>Use the <span class="green">c</span> and <span class="green">v</span> keys to turn.</p>
+          <p>Use the <span class="green">f</span> key to accelerate.</p>
+          <p class="pink">Player 3:</p>
+          <p>Use the <span class="pink">1</span> and <span class="pink">q</span> keys to turn.</p>
+          <p>Use the <span class="pink">2</span> key to accelerate.</p>
+          <button class="back">back</button>
+        </div>
+      </div>
     </div>
-    <div class="health" id="one" style="display: none;">
+    <div class="health yellow" id="one" style="display: none;">
       <div class="player">Player 1</div>
-      <div class="num">60</div>
+      <div class="num"></div>
     </div>
-    <div class="health" id="two" style="display: none;">
+    <div class="health green" id="two" style="display: none;">
       <div class="player">Player 2</div>
-      <div class="num">60</div>
+      <div class="num"></div>
     </div>
-    <div class="health" id="three" style="display: none;">
+    <div class="health pink" id="three" style="display: none;">
       <div class="player">Player 3</div>
-      <div class="num">60</div>
+      <div class="num"></div>
     </div>
     <div class="health" id="four" style="display: none;">
       <div class="player">Player 4</div>
-      <div class="num">60</div>
+      <div class="num"></div>
     </div>
   </body>
 

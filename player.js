@@ -17,7 +17,8 @@ class Player {
     this.damage = 0;
 
     // Stats
-    this.health = 60;
+    this.health = 3;
+    this.element.text(this.health);
   }
 
   draw() {
@@ -117,6 +118,15 @@ class Player {
         this.projectiles.splice(i, 1);
       }
     }
+  }
+
+  die(won = false) {
+    const health = this.element.parents(".health");
+    health.addClass('hide');
+    setTimeout(() => {
+      health.hide();
+      health.removeClass('hide');
+    }, 1000);
   }
 
   takeDamage(n = 1) {
