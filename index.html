@@ -29,6 +29,7 @@
     <script src="./player.js"></script>
     <script src="./game.js"></script>
     <script src="./main.js"></script>
+    <script src="./dom.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./style.css">
@@ -44,15 +45,11 @@
       </div>
       <div id="play-settings">
         <div>
-          <p class="yellow">Player 1:</p>
-          <p>Use the <span class="yellow">left</span> and <span class="yellow">right</span> arrow keys to turn.</p>
-          <p>Use the <span class="yellow">up</span> arrow key to accelerate.</p>
-          <p class="green">Player 2:</p>
-          <p>Use the <span class="green">c</span> and <span class="green">v</span> keys to turn.</p>
-          <p>Use the <span class="green">f</span> key to accelerate.</p>
-          <p class="pink">Player 3:</p>
-          <p>Use the <span class="pink">1</span> and <span class="pink">q</span> keys to turn.</p>
-          <p>Use the <span class="pink">2</span> key to accelerate.</p>
+          <div id="player-select">
+            <div id="player1" class="player-div player-selected"></div>
+            <div id="player2" class="player-div player-selected"></div>
+            <div id="player3" class="player-div player-selected"></div>
+          </div>
           <div id="back-play-game">
             <button class="back">back</button><button id="play-game">start</button>
           </div>
@@ -89,20 +86,16 @@
         </div>
       </div>
     </div>
-    <div class="health yellow" id="one" style="display: none;">
+    <div class="health yellow" id="health-player1" style="display: none;">
       <div class="player">Player 1</div>
       <div class="num"></div>
     </div>
-    <div class="health green" id="two" style="display: none;">
+    <div class="health green" id="health-player2" style="display: none;">
       <div class="player">Player 2</div>
       <div class="num"></div>
     </div>
-    <div class="health pink" id="three" style="display: none;">
+    <div class="health pink" id="health-player3" style="display: none;">
       <div class="player">Player 3</div>
-      <div class="num"></div>
-    </div>
-    <div class="health" id="four" style="display: none;">
-      <div class="player">Player 4</div>
       <div class="num"></div>
     </div>
   </body>

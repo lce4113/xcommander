@@ -5,6 +5,7 @@
   overflow: hidden;
   padding: 0;
   margin: 0;
+  font-family: "Reem Kufi", sans-serif;
 }
 
 /* Colors */
@@ -146,6 +147,69 @@ p {
   float: right;
 }
 
+#player-checkboxes {
+  display: flex;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  cursor: pointer;
+}
+.checkbox-wrapper > input {
+  align-self: center;
+  margin: min(1vw, 1vh);
+  width: min(2vw, 2vh);
+  height: min(2vw, 2vh);
+  cursor: pointer;
+}
+.checkbox-wrapper > label {
+  font-size: min(3vw, 3vh);
+  cursor: pointer;
+}
+
+#player-select {
+  display: flex;
+  flex-direction: row;
+}
+
+.player-div {
+  cursor: pointer;
+  transform: rotate(180deg);
+  padding: min(1vw, 1vh);
+  margin: min(1vw, 1vh);
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s, transform 0.5s;
+}
+.player-div:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.player-selected {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(0);
+  transition: background 0.5s, transform 0.5s;
+}
+.player-selected::after {
+  content: "";
+  position: relative;
+  left: 25%;
+  width: 50%;
+  height: 10%;
+  background: red;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.player-div > div {
+  display: flex;
+  flex-direction: row;
+}
+.pixel {
+  width: min(1vw, 1vh);
+  height: min(1vw, 1vh);
+}
+
 /* Game */
 #defaultCanvas0 {
   position: absolute;
@@ -180,28 +244,28 @@ p {
   margin: -2vw 0;
 }
 
-#one {
+#health-player1 {
   top: 0;
   left: 0;
 }
-#two {
+#health-player2 {
   top: 0;
   right: 0;
 }
-#three {
+#health-player3 {
   bottom: 0;
   left: 0;
 }
-#four {
+#health-player4 {
   bottom: 0;
   right: 0;
 }
 
-#one > .num,
-#three > .num {
+#health-player1 > .num,
+#health-player3 > .num {
   float: left;
 }
-#two > .num,
-#four > .num {
+#health-player2 > .num,
+#health-player4 > .num {
   float: right;
 }

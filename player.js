@@ -1,6 +1,6 @@
 class Player {
 
-  constructor(x, y, radius, dir, color1, color2, arr, keys, element) {
+  constructor(x, y, radius, dir, health, color1, color2, arr, keys, element) {
     // Parameters
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
@@ -17,7 +17,7 @@ class Player {
     this.damage = 0;
 
     // Stats
-    this.health = 3;
+    this.health = health;
     this.element.text(this.health);
   }
 
@@ -43,7 +43,6 @@ class Player {
           if (this.damage > 0) {
             this.damage -= 1 / this.arr.length / this.arr[j].length / 60 * 100;
             fill(255, 0, 0, 150);
-
             rect(
               (-this.arr.length / 2 + i) * this.radius / 1.15 * 2 / this.arr.length,
               (-this.arr[j].length / 2 + j) * this.radius / 1.15 * 2 / this.arr[j].length,
@@ -55,7 +54,7 @@ class Player {
       }
     }
 
-    // Red thing in the back
+    // Red thruster thing in the back
     if (keyIsDown(this.keys[2])) {
       fill(255, 0, 0);
       rect(
